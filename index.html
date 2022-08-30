@@ -9,6 +9,7 @@
     <!-- import aframe and then ar.js with image tracking / location based features -->
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
 
     <!-- style for the loader -->
     <style>
@@ -54,7 +55,7 @@
     window.addEventListener('click', function () {
       var v = document.querySelector('#rickroll');
       v.play();
-    });
+    }, false);
 
     // playVideo = () => {
     //   console.log("PLAYING VIDEO")
@@ -82,7 +83,7 @@
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
-      <div>Click on black vid</div>
+      <div>Added extra attributes</div>
     </div>
 
     <!-- <button type="button" class="button" id="play-button" onclick="playVideo()">
@@ -103,6 +104,9 @@
         <video 
          webkit-playsinline
          playsinline
+         autoplay
+         type="video/mp4"
+         loop="true"
          id="rickroll" 
          src="https://kenoafallasdlsu.github.io/SWTest/never-gonna-give.mp4"
          crossorigin="anonymous"></video>
@@ -125,10 +129,11 @@
             </a-entity> -->
           <a-video
                 src="#rickroll"
-                position='50 150 -100'
+                position='0 0 -100'
                 rotation='90 0 180'
                 width='300'
                 height='175'
+                play="true"
                 >
           </a-video>
       </a-nft>
