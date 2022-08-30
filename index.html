@@ -48,14 +48,19 @@
 
     window.addEventListener("arjs-nft-loaded", (event) => {
       console.log("Loading finished")
-      document.getElementById('play-button').style.display= 'block'
+      // document.getElementById('play-button').style.display= 'block'
     });
 
-    playVideo = () => {
-      console.log("PLAYING VIDEO")
-      document.querySelector('#rickroll').play()
-      document.getElementById('play-button').style.display= 'none'
-    }
+    window.addEventListener('click', function () {
+      var v = document.querySelector('#rickroll');
+      v.play();
+    });
+
+    // playVideo = () => {
+    //   console.log("PLAYING VIDEO")
+    //   document.querySelector('#rickroll').play()
+    //   document.getElementById('play-button').style.display= 'none'
+    // }
   </script>
 
   <style>
@@ -77,12 +82,12 @@
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
-      <div>Manual Play</div>
+      <div>Click on black vid</div>
     </div>
 
-    <button type="button" class="button" id="play-button" onclick="playVideo()">
+    <!-- <button type="button" class="button" id="play-button" onclick="playVideo()">
       Play
-    </button>
+    </button> -->
 
     <!-- a-frame scene -->
     <a-scene
