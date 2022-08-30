@@ -39,8 +39,10 @@
         this.el.sceneEl.addEventListener('markerFound', () => {
           // redirect to custom URL
           console.log("IMAGE FOUND YAHH")
+          
+          document.querySelector("#rickroll").play();
           document.querySelector("#rickroll").currentTime = 0;
-          //document.querySelector("#rickroll").play();
+
         })
       }
     })
@@ -49,7 +51,7 @@
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
-      <div>Muted sadge Sets Time</div>
+      <div>Muted no auto, programmed play</div>
     </div>
 
     <!-- a-frame scene -->
@@ -66,7 +68,6 @@
         <video 
          muted
          defaultMuted
-         autoplay
          webkit-playsinline
          playsinline
          id="rickroll" 
