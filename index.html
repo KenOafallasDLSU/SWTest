@@ -39,6 +39,7 @@
         this.el.sceneEl.addEventListener('markerFound', () => {
           // redirect to custom URL
           console.log("IMAGE FOUND YAHH")
+          document.querySelector("#rickroll").stop();
           document.querySelector("#rickroll").play();
         })
       }
@@ -48,7 +49,7 @@
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
-      <div>Anon crossorigin</div>
+      <div>Muted sadge</div>
     </div>
 
     <!-- a-frame scene -->
@@ -63,6 +64,8 @@
       
       <a-assets>
         <video 
+         muted
+         autoplay
          webkit-playsinline
          playsinline
          id="rickroll" 
