@@ -39,20 +39,50 @@
         this.el.sceneEl.addEventListener('markerFound', () => {
           // redirect to custom URL
           console.log("IMAGE FOUND YAHH")
-          
-          document.querySelector("#rickroll").play();
+
           document.querySelector("#rickroll").currentTime = 0;
 
         })
       }
     })
+
+    window.addEventListener("arjs-nft-loaded", (event) => {
+      console.log("Loading finished")
+      document.getElementById('play-button').style.display= 'block'
+    });
+
+    playVideo = () => {
+      console.log("PLAYING VIDEO")
+      document.querySelector('#rickroll').play()
+      document.getElementById('play-button').style.display= 'none'
+    }
   </script>
+
+  <style>
+    .button {
+      position: fixed; 
+      top: 50%; 
+      left: 50%;
+      height: 20vh;
+      width: 20vw;
+      z-index: 1;
+      display: none;
+    }
+    .button:hover {
+      cursor: pointer;
+      color: brown;
+    }
+  </style>
 
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
-      <div>Muted no auto, programmed play</div>
+      <div>Manual Play</div>
     </div>
+
+    <button type="button" class="button" id="play-button" onclick="playVideo()">
+      Play
+    </button>
 
     <!-- a-frame scene -->
     <a-scene
@@ -66,8 +96,6 @@
       
       <a-assets>
         <video 
-         muted
-         defaultMuted
          webkit-playsinline
          playsinline
          id="rickroll" 
